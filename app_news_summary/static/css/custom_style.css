@@ -1,0 +1,21 @@
+body {
+  background: currentColor;
+}
+
+main > .container {
+  padding: 90px 30px 0;
+  color: white;
+}
+
+.footer {
+  background-color: #343a40;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

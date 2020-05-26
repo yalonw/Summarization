@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+
+    <br>
+    <h2 class="py-3"><strong>搜尋結果</strong></h2>
+    <p>有關「{{keyword}}」之新聞文章，共搜集 {{num_of_news}} 篇。</p> 
+
+    <br>
+    <h2 class="py-3"><strong>總摘如下</strong></h2>
+    <p style="font-size:larger; color:#bca88F;">
+       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
+       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
+       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
+       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
+       (佔位符號)
+    </p> 
+
+    <br>
+    <h2 class="py-3"><strong>文章列表</strong></h2>
+    {% include 'date_source.html' %}    
+
+    <br>
+</div>	
+{% endblock %}

@@ -1,0 +1,35 @@
+<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/themes/semantic/bootstrap-table-semantic.min.css" rel="stylesheet">
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/themes/semantic/bootstrap-table-semantic.min.js"></script>
+
+<table 
+    id="table"
+    data-toggle="table"
+    data-height="460"
+    data-sort-name="name"
+    data-sort-order="desc"
+    class="text-center"
+    style="font-size:0.85em; color:white;">   
+
+    <thead style="color:white;">			
+        <tr>
+            <th data-field="source" data-sortable="true">新聞來源</th>
+            <th data-field="datetime" data-sortable="true">發佈日期</th>
+            <th data-field="titlesummary" data-sortable="true">摘　　要</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for i, r in summary.iterrows %}
+        <tr>
+            <td>BBC中文網</td>
+            <td>{{r.time}}</td>
+            <td class="text-justify" >
+                <p style="font-size:1.2em;"><a href={{r.url}}>{{r.title}}</a></p>
+                <p>{{r.summary1}}</p>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>

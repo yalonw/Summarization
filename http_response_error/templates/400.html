@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/error_style.css' %}">
+<div class=glitch_show title="400">400</div>
+<div>bad request</div>
+<p><span id="time">5</span> 秒後跳轉回主頁...</p>
+<script>
+    onload=function () {
+        setInterval(go,1000)
+    };
+    var x=4;
+    function go() { 
+        if (x>=0){
+            document.getElementById("time").innerText=x;
+        }
+        else {
+            location.href="/index";
+        }
+        x--;
+    }
+</script>
+{% endblock %}

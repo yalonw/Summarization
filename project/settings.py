@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app_news_summary.apps.AppNewsSummaryConfig',
     'app_text_summary.apps.AppTextSummaryConfig',
     'http_response_error.apps.HttpResponseErrorConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates').replace('\\','/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +128,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static/')
 #     os.path.join(BASE_DIR, 'static'),
 #     '/static/',    
 # ]
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+DATE_INPUT_FORMATS = ['%Y-%m-%d']

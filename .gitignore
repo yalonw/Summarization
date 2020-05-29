@@ -4,3 +4,4 @@ venv
 *.pyc
 *.swp
 *.swo
+*.sqlite3

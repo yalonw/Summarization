@@ -1,16 +1,10 @@
-body {
-  background: currentColor;
-}
-
-main > .container {
+/* main > .container {
   padding: 90px 30px 0;
-  color: white;
-}
+} */
 
 .footer {
   background-color: #343a40;
 }
-
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
@@ -18,4 +12,97 @@ main > .container {
 
 code {
   font-size: 80%;
+}
+
+a {
+  color: #bca88F;
+}
+
+body {
+  -webkit-transition: background 0.4s ease;
+  transition: background 0.4s ease;
+  background: #212529;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+}
+body.day {
+  background: #ffffff;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+}
+
+main {
+  -webkit-transition: background 0.4s ease;
+  transition: background 0.4s ease;
+  color: #ffffff;
+}
+main.day {
+  color: #212529;
+}
+
+.dayNight {
+  cursor: pointer;
+}
+.dayNight input {
+  display: none;
+}
+.dayNight input + div {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  box-shadow: inset 7px -7px 0 0 #ffffff;
+  -webkit-transform: scale(1) rotate(-2deg);
+          transform: scale(1) rotate(-2deg);
+  -webkit-transition: box-shadow 0.5s ease 0s, -webkit-transform 0.4s ease 0.1s;
+  transition: box-shadow 0.5s ease 0s, -webkit-transform 0.4s ease 0.1s;
+  transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
+  transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s, -webkit-transform 0.4s ease 0.1s;
+}
+.dayNight input + div:before {
+  content: "";
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.dayNight input + div:after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  box-shadow: 0 -16px 0 #ffc107, 0 16px 0 #ffc107, 16px 0 0 #ffc107, -16px 0 0 #ffc107, 12px 12px 0 #ffc107, -12px 12px 0 #ffc107, 12px -12px 0 #ffc107, -12px -12px 0 #ffc107;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.dayNight input:checked + div {
+  box-shadow: inset 20px -20px 0 0 #ffffff;
+  -webkit-transform: scale(0.5) rotate(0deg);
+          transform: scale(0.5) rotate(0deg);
+  -webkit-transition: box-shadow 0.2s ease 0s, -webkit-transform 0.3s ease 0.1s;
+  transition: box-shadow 0.2s ease 0s, -webkit-transform 0.3s ease 0.1s;
+  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s, -webkit-transform 0.3s ease 0.1s;
+}
+.dayNight input:checked + div:before {
+  background: #ffc107;
+  -webkit-transition: background 0.3s ease 0.1s;
+  transition: background 0.3s ease 0.1s;
+}
+.dayNight input:checked + div:after {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: -webkit-transform 0.5s ease 0.15s;
+  transition: -webkit-transform 0.5s ease 0.15s;
+  transition: transform 0.5s ease 0.15s;
+  transition: transform 0.5s ease 0.15s, -webkit-transform 0.5s ease 0.15s;
 }

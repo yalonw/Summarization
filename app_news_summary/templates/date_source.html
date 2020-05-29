@@ -1,4 +1,4 @@
-<link href="https://unpkg.com/bootstrap-table@1.16.0/dist/themes/semantic/bootstrap-table-semantic.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/themes/semantic/bootstrap-table-semantic.min.css" >
 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
 <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/themes/semantic/bootstrap-table-semantic.min.js"></script>
 
@@ -9,9 +9,9 @@
     data-sort-name="name"
     data-sort-order="desc"
     class="text-center"
-    style="font-size:0.85em; color:white;">   
+    style="font-size:0.85em; color:#ffffff;">   
 
-    <thead style="color:white;">			
+    <thead style="color:#ffffff;">			
         <tr>
             <th data-field="source" data-sortable="true">新聞來源</th>
             <th data-field="datetime" data-sortable="true">發佈日期</th>
@@ -25,7 +25,7 @@
             <td>BBC中文網</td>
             <td>{{r.time}}</td>
             <td class="text-justify" >
-                <p style="font-size:1.2em;"><a href={{r.url}}>{{r.title}}</a></p>
+                <p style="font-size:1.2em;"><a href={{r.url}}><strong>{{r.title}}</strong></a></p>
                 <p>{{r.summary1}}</p>
             </td>
         </tr>

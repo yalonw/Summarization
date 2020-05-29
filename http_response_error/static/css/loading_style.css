@@ -1,18 +1,22 @@
+.dayNight {
+  display: none
+}
+
 main {
   display: -webkit-box;
   display: flex;
-  height: 100%;;
+  height: 95%;;
   -webkit-box-pack: center;
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
 }
 main .circle {
-  width: 325px;
-  height: 325px;
+  width: 260px;
+  height: 260px;
   display: block;
   background: #fff;
-  border-radius: 500%;
+  border-radius: 100%;
   position: relative;
   -webkit-animation: rotation 2s linear infinite;
           animation: rotation 2s linear infinite;
@@ -38,16 +42,16 @@ main .circle {
   }
 }
 main .circle .inner {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background: currentColor;
   position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
-  border-radius: 100%;
-  box-shadow: 0 -130px 0 -75px currentColor;
+  border-radius: 1000%;
+  box-shadow: 0 -100px 0 -50px currentColor;
   -webkit-animation: switch 8s ease-in-out infinite;
           animation: switch 8s ease-in-out infinite;
 }
@@ -56,31 +60,31 @@ main .circle .inner {
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 -130px 0 -75px currentColor;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 -100px 0 -50px currentColor;
   }
   25% {
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 -130px 0 -75px currentColor;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 -100px 0 -50px currentColor;
   }
   50% {
     top: calc(100% - 55px);
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 -130px 0 75px currentColor;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 -100px 0 50px currentColor;
     -webkit-transform: translateX(-50%) translateY(0);
             transform: translateX(-50%) translateY(0);
   }
   75% {
     top: calc(100% - 55px);
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 -130px 0 75px currentColor;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 -100px 0 50px currentColor;
     -webkit-transform: translateX(-50%) translateY(0);
             transform: translateX(-50%) translateY(0);
   }
@@ -88,9 +92,9 @@ main .circle .inner {
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 -130px 0 -75px currentColor;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 -100px 0 -50px currentColor;
   }
 }
 @keyframes switch {
@@ -98,31 +102,31 @@ main .circle .inner {
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 -130px 0 -75px currentColor;
+    width: 145px;
+    height: 145px;
+    box-shadow: 0 -100px 0 -50px currentColor;
   }
   25% {
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 -130px 0 -75px currentColor;
+    width: 145px;
+    height: 145px;
+    box-shadow: 0 -100px 0 -50px currentColor;
   }
   50% {
     top: calc(100% - 55px);
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 -130px 0 75px currentColor;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 -100px 0 50px currentColor;
     -webkit-transform: translateX(-50%) translateY(0);
             transform: translateX(-50%) translateY(0);
   }
   75% {
     top: calc(100% - 55px);
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 -130px 0 75px currentColor;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 -100px 0 50px currentColor;
     -webkit-transform: translateX(-50%) translateY(0);
             transform: translateX(-50%) translateY(0);
   }
@@ -130,8 +134,8 @@ main .circle .inner {
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 -130px 0 -75px currentColor;
+    width: 145px;
+    height: 145px;
+    box-shadow: 0 -100px 0 -50px currentColor;
   }
 }

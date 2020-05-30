@@ -34,3 +34,25 @@ def summary_1(request):
     summary = ds.Drawable_summary(df_lda, 'text_rank', 25, '2', keyword).make_summary()
 
     return render(request, 'search_result.html', locals())
+
+
+def summary_2(request):
+    '''文本摘要實作二'''
+
+    # 取得輸入之關鍵字、日期期間
+    keyword = request.POST['keyword']
+    # num_of_news = request.POST['num_of_news']
+    num_of_news = 11
+    # search-time = request.POST['search-time']
+
+    # TODO: serch_news
+
+    # 取得爬蟲資料後，做LDA模型分類
+    lda = ltm.LDAclass(df_news, chinese_only=True)  # 只做 jieba 分詞
+    lda.lda_class(n_topics=3, max_iter=100, evaluate_every=10, verbose=1)  # 做 LDA
+    df_lda = lda.dataframe
+
+    # 取得LDA結果，做抽取式摘要
+    summary = ds.Drawable_summary(df_lda, 'text_rank', 25, '2', keyword).make_summary()
+
+    return render(request, 'search_result.html', locals())

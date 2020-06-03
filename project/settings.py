@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_news_summary.apps.AppNewsSummaryConfig',
-    'app_text_summary.apps.AppTextSummaryConfig',
-    'http_response_error.apps.HttpResponseErrorConfig',
+    'app_news_summary',
+    'app_text_summary',
+    'http_response_error',
     'import_export',
 ]
 

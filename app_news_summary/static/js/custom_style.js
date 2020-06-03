@@ -24,8 +24,8 @@ checkbox.addEventListener("change", function(){
   };
 
   if ( logo_bw.src.indexOf("ss_logo_word-white.png") > -1) {
-    logo_bw.src = "static/images/ss_logo.png"
+    logo_bw.src = "/static/images/ss_logo.png"
   } else {
-    logo_bw.src = "static/images/ss_logo_word-white.png"
+    logo_bw.src = "/static/images/ss_logo_word-white.png"
   };
 });

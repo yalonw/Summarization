@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+<div class="container">   
+    <div class="text-center pb-5 px-1">
+        <img src="{% static 'images/ss_logo_word-white.png' %}" class="img-fluid" alt="Summarization" id="logo">
+    </div> 
+    {% include 'analyze_area.html' %}  
+</div>	
+
+{% endblock %}

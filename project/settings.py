@@ -26,7 +26,7 @@ SECRET_KEY = 'j$lt7_9*@t_1ey79dq#nb0n5#2p)y-t@nw@t*m5hd7lw=&vqxe'
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['summarization.exlent.io']
 
 
 # Application definition

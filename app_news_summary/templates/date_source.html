@@ -21,14 +21,16 @@
     
     <tbody>
         {% for i, r in summary.iterrows %}
+        {% if r.topic == topicnum %}
         <tr>
-            <td>BBC中文網</td>
+            <td>紐約時報中文網</td>
             <td>{{r.time}}</td>
             <td class="text-justify" >
                 <p style="font-size:1.2em;"><a href={{r.url}}><strong>{{r.title}}</strong></a></p>
                 <p>{{r.summary1}}</p>
             </td>
         </tr>
+        {% endif %}
         {% endfor %}
     </tbody>
     

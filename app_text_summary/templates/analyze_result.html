@@ -12,6 +12,25 @@
         {{summary}}
     </div>
 
+    <br>
+    <h2 class="py-3"><strong>關鍵時間</strong></h2>
+    <table class="table table-sm text-center" style="color:#ffffff;">
+        <thead style="color:#ffffff;">			
+            <tr>
+                <th style="width: 20%;">時 間</th>
+                <th>事 件</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i, r in extract_time.iterrows %}
+            <tr>
+                <td class="text-center">{{r.time}}</td>
+                <td class="text-justify">{{r.event}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
     <br><br>
 
 </div>	

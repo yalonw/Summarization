@@ -26,6 +26,8 @@ SECRET_KEY = 'j$lt7_9*@t_1ey79dq#nb0n5#2p)y-t@nw@t*m5hd7lw=&vqxe'
 DEBUG = True
 # DEBUG = False
 
+# ALLOWED_HOSTS = ['summarization.exlent.io']
+# local用
 ALLOWED_HOSTS = ['*']
 
 
@@ -38,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_news_summary.apps.AppNewsSummaryConfig',
-    'app_text_summary.apps.AppTextSummaryConfig',
-    'http_response_error.apps.HttpResponseErrorConfig',
+    'app_news_summary',
+    'app_text_summary',
+    'http_response_error',
     'import_export',
 ]
 

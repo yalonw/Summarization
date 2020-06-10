@@ -5,17 +5,15 @@
     <br>
     <h2 class="py-3"><strong>搜尋結果</strong></h2>
     <p>有關「{{keyword}}」之新聞文章，共搜集 {{datesize}} 篇。</p> 
-
     <br>
-    <h2 class="py-3"><strong>總摘如下</strong></h2>
+    <h2 class="py-3"><strong>文字雲圖</strong></h2>
     <p style="font-size:larger; color:#bca88F;"><strong>
-       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
-       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
-       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
-       摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘摘，
-       (佔位符號)
-    </strong></p> 
-
+      {% if datesize > 0 %}
+        {% include 'wordcloud.html' %}
+      {% else %}
+        <p> </p>
+      {% endif %}
+    </strong></p>
     <br>
     <h2 class="py-3"><strong>文章列表</strong></h2>
     {% include 'date_source.html' %}    

@@ -1,0 +1,18 @@
+<form action="{% url 'analyze_article' %}" method="POST" name="form_s2">
+    <div class="form-group">
+        {% csrf_token %}
+        <select class="form-control btn-outline-info" name="summary_num" id="summary_num">
+            <option value="2" selected><strong>摘要成_{{summary_num}}_句話</strong></option>
+            <option value="1"> 1 句</option>
+            <option value="2"> 2 句</option>
+            <option value="3"> 3 句</option>
+            <option value="4"> 4 句</option>
+            <option value="5"> 5 句</option>            
+        </select>        
+        <textarea class="form-control text-justify" id="article" name="article" rows="5" placeholder="請輸入想摘要的文章">{{article}}</textarea>
+    </div>
+    <div class="text-center">    
+        <button type="reset" value="Reset" class="btn btn-outline-secondary">清除重填</button>
+        <button type="submit" value="Submit" class="btn btn-outline-info">開始摘要</button>
+    </div>
+</form>

@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import pandas as pd
+from opencc import OpenCC
 
 class Crawl():
     '''
@@ -62,7 +63,7 @@ class Crawl_BBC(Crawl):
                         print(i.find('span', class_='icon-new').text)
                     except:
                         self.title.append(i.find('a', class_='hard-news-unit__headline-link').text)
-                        self.time.append(i.find('div', class_='date date--v2').text)
+                        self.time.append(i.find('div', class_='date date--v2').text.replace(" ", ""))
                         self.url.append(i.find('a', class_='hard-news-unit__headline-link')['href'])
                         self.content.append(self.get_content(i.find('a', class_='hard-news-unit__headline-link')['href']))
                         num += 1                            
@@ -97,10 +98,11 @@ class Crawl_NYtimes(Crawl):
             if p.contents[0].name == 'figure' or p.contents[0].name == 'i': p.clear()
             body_p.append(p.text.replace('\r', '').replace('\n', '').replace(' ',''))
 
-        cont = ''.join(body_p)
+        cont = ''.join(body_p).replace('（歡迎點擊此處訂閱NYT簡報，我們將在每個工作日發送最新內容至您的郵箱。）', '')
         return cont    
 
     def crawler(self):        
+        cc = OpenCC('s2tw') # 簡中轉繁中
         num = 0
         page = 0   # 起始頁0，下一頁+100
 
@@ -117,8 +119,8 @@ class Crawl_NYtimes(Crawl):
             else: 
                 # 擷取新聞標題、發布時間、新聞網址
                 for i in news['items']:
-                    self.title.append(i['headline'])
-                    self.time.append(i['publication_date'])
+                    self.title.append(cc.convert(i['headline']))
+                    self.time.append(i['publication_date'].replace(" ", ""))
                     self.url.append(i['web_url_with_host'] + 'zh-hant/') # 以繁體中文顯示
                     self.content.append(self.get_content(i['web_url_with_host'] + 'zh-hant/'))  
                     num += 1                            
@@ -149,6 +151,6 @@ if __name__ == '__main__':
     # Debug for num_of_news
     keyword = input("keyword:")
     num_of_news = input("num_of_news: ")
-    df_news = Crawl_BBC('肺炎', int(num_of_news)).make_dataframe()
+    df_news = Crawl_NYtimes(keyword, int(num_of_news)).make_dataframe()
     print('--------- 搜尋完成，印出 DataFrame -----------')
     print(df_news)

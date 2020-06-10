@@ -22,12 +22,18 @@
     <tbody>
         {% for i, r in summary.iterrows %}
         <tr>
-            <td>BBC中文網</td>
+            <td>紐約時報中文網</td>
             <td>{{r.date}}</td>
             <td class="text-justify" >
                 <p style="font-size:1.2em;"><a href={{r.url}}><strong>{{r.title}}</strong></a></p>
                 <p>{{r.summary1}}</p>
             </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <p>
+                資料庫查詢失敗，請重新輸入關鍵字或更改搜尋區間  <a href="/">返回首頁</a>
+            </p>
         </tr>
         {% endfor %}
     </tbody>

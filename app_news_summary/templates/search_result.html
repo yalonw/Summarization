@@ -3,63 +3,71 @@
 {% load static %}
 <div class="container">
 
-    <br>
-    <h2 class="py-3"><strong>搜尋結果</strong></h2>
-    <p>有關「{{keyword}}」之新聞文章，共搜集 {{datesize}} 篇。</p> 
-    <br>
-    
-    <h2 class="py-3"><strong style="background-color:#bca88F; margin-left:-33px;">　TOPIC 1　</strong></h2>
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <img src="{% static 'images/wordcloud0.png' %}" style="width: inherit;">
-        </div>
-        <div class="col-md-6">
-            <ul>
-                <li>摘要1</li>
-                <li>摘要2</li>
-            </ul>            
-        </div>
-    </div>
-    <h5 class="pt-5 pb-2 text-center">TOPIC 1 之文章列表</h5>
-    {% with topicnum=0 %}  
-        {% include 'date_source.html' %}   
-    {% endwith %}
+	<br>
+	<h2 class="py-3"><strong>搜尋結果</strong></h2>
+	<p>有關「{{keyword}}」之新聞文章，共搜集 {{datesize}} 篇。</p> 
+	<br>
 
-    <br><br>
-    <h2 class="py-3"><strong style="background-color:#bca88F; margin-left:-33px;">　TOPIC 2　</strong></h2>
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <img src="{% static 'images/wordcloud1.png' %}" style="width: inherit;">
-        </div>
-        <div class="col-md-6">
-            <ul>
-                <li>摘要1</li>
-                <li>摘要2</li>
-            </ul>            
-        </div>
-    </div>
-    <h5 class="pt-5 pb-2 text-center">TOPIC 2 之文章列表</h5>
-    {% with topicnum=1 %}  
-        {% include 'date_source.html' %}   
-    {% endwith %}
+	{% if 0 in wc_list %}
+	<h2 class="py-3"><strong style="background-color:#bca88F; margin-left:-33px;">　TOPIC 1　</strong></h2>
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<img src="{% static 'images/wordcloud0.png' %}" style="width: inherit;">
+		</div>
+		<div class="col-md-6">
+			<ul>
+				<li>摘要1</li>
+				<li>摘要2</li>
+			</ul>            
+		</div>
+	</div>
+	<h5 class="pt-5 pb-2 text-center">TOPIC 1 之文章列表</h5>
+	{% with topicnum=0 %} 
+		{% include 'date_source.html' %}   
+	{% endwith %}
+	{% endif %}
+	<br><br>
 
-    <br><br>
-    <h2 class="py-3"><strong style="background-color:#bca88F; margin-left:-33px;">　TOPIC 3　</strong></h2>
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <img src="{% static 'images/wordcloud2.png' %}" style="width: inherit;">
-        </div>
-        <div class="col-md-6">
-            <ul>
-                <li>摘要1</li>
-                <li>摘要2</li>
-            </ul>            
-        </div>
-    </div>
-    <h5 class="pt-5 pb-2 text-center">TOPIC 3 之文章列表</h5>
-    {% with topicnum=2 %}  
-        {% include 'date_source.html' %}   
-    {% endwith %}
-    <br><br>
+	{% if 1 in wc_list %}
+	<h2 class="py-3"><strong style="background-color:#bca88F; margin-left:-33px;">　TOPIC 2　</strong></h2>
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<img src="{% static 'images/wordcloud1.png' %}" style="width: inherit;">
+		</div>
+		<div class="col-md-6">
+			<ul>
+				<li>摘要1</li>
+				<li>摘要2</li>
+			</ul>
+		</div>
+	</div>
+	<h5 class="pt-5 pb-2 text-center">TOPIC 2 之文章列表</h5>
+	{% with topicnum=1 %}
+		{% include 'date_source.html' %}   
+	{% endwith %}
+	{% endif %}
+
+	<br><br>
+
+	{% if 2 in wc_list %}
+	<h2 class="py-3"><strong style="background-color:#bca88F; margin-left:-33px;">　TOPIC 3　</strong></h2>
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<img src="{% static 'images/wordcloud2.png' %}" style="width: inherit;">
+		</div>
+		<div class="col-md-6">
+			<ul>
+				<li>摘要1</li>
+				<li>摘要2</li>
+			</ul>
+		</div>
+	</div>
+	<h5 class="pt-5 pb-2 text-center">TOPIC 3 之文章列表</h5>
+	{% with topicnum=2 %} 	
+		{% include 'date_source.html' %}
+	{% endwith %}
+	{% endif %}
+
+	<br><br>
 </div>	
 {% endblock %}

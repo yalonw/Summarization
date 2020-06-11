@@ -20,7 +20,7 @@
     </thead>
     
     <tbody>
-        {% for i, r in summary.iterrows %}
+    {% for i, r in summary.iterrows %}
         {% if r.topic == topicnum %}
         <tr>
             <td>紐約時報中文網</td>
@@ -30,13 +30,12 @@
                 <p>{{r.summary1}}</p>
             </td>
         </tr>
-        {% empty %}
+        {% endif %}
+    {% empty %}
         <tr>
-            <p>
-                資料庫查詢失敗，請重新輸入關鍵字或更改搜尋區間  <a href="/">返回首頁</a>
-            </p>
+            <p>資料庫查詢失敗，請重新輸入關鍵字或更改搜尋區間  <a href="/">返回首頁</a></p>
         </tr>
-        {% endfor %}
+    {% endfor %}
     </tbody>
     
 </table>

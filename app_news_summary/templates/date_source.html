@@ -21,6 +21,7 @@
     
     <tbody>
         {% for i, r in summary.iterrows %}
+        {% if r.topic == topicnum %}
         <tr>
             <td>紐約時報中文網</td>
             <td>{{r.date}}</td>

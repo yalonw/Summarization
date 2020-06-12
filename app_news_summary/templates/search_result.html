@@ -5,7 +5,7 @@
 
 	<br>
 	<h2 class="py-3"><strong>搜尋結果</strong></h2>
-	<p>有關「{{keyword}}」之新聞文章，共搜集 {{datesize}} 篇。</p> 
+	<p>有關「{{keyword}}」之新聞文章，共搜集 {{datesize}} 篇。</p>
 	<br>
 
 	{% if 0 in wc_list %}
@@ -16,16 +16,22 @@
 		</div>
 		<div class="col-md-6">
 			<ul>
-				<li>摘要1</li>
-				<li>摘要2</li>
-			</ul>            
+				{% for i, r in summary.iterrows %}
+					{% if r.topic == 0 %}
+						{% if i < 5 %}
+						<li>{{r.summary1}}</li>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</ul>
 		</div>
 	</div>
 	<h5 class="pt-5 pb-2 text-center">TOPIC 1 之文章列表</h5>
-	{% with topicnum=0 %} 
-		{% include 'date_source.html' %}   
+	{% with topicnum=0 %}
+		{% include 'date_source.html' %}
 	{% endwith %}
 	{% endif %}
+	
 	<br><br>
 
 	{% if 1 in wc_list %}
@@ -36,14 +42,19 @@
 		</div>
 		<div class="col-md-6">
 			<ul>
-				<li>摘要1</li>
-				<li>摘要2</li>
+				{% for i, r in summary.iterrows %}
+					{% if r.topic == 1 %}
+						{% if i < 5 %}
+						<li>{{r.summary1}}</li>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
 			</ul>
 		</div>
 	</div>
 	<h5 class="pt-5 pb-2 text-center">TOPIC 2 之文章列表</h5>
 	{% with topicnum=1 %}
-		{% include 'date_source.html' %}   
+		{% include 'date_source.html' %}
 	{% endwith %}
 	{% endif %}
 
@@ -57,13 +68,18 @@
 		</div>
 		<div class="col-md-6">
 			<ul>
-				<li>摘要1</li>
-				<li>摘要2</li>
+				{% for i, r in summary.iterrows %}
+					{% if r.topic == 2 %}
+						{% if i < 10 %}
+						<li>{{r.summary1}}</li>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
 			</ul>
 		</div>
 	</div>
 	<h5 class="pt-5 pb-2 text-center">TOPIC 3 之文章列表</h5>
-	{% with topicnum=2 %} 	
+	{% with topicnum=2 %}
 		{% include 'date_source.html' %}
 	{% endwith %}
 	{% endif %}

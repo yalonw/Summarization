@@ -104,8 +104,9 @@ def summary_esjieba_database(request):
 		df_lda = lda.dataframe
 
 		if keyword == "肺炎" and search_time == "180":
-			# 展示範利用，取得已分析好的結果摘要，直接呈現在網頁上
+			# 展示用，取得已分析好的結果摘要，直接呈現在網頁上
 			# 範例: keyword=肺炎, search_time=過去半年
+			print("="*20+"肺炎&180"+"="*20)
 			date_now = date.today()
 			date_end = timedelta(days=180)
 			D1 = date_now-date_end
@@ -116,23 +117,29 @@ def summary_esjieba_database(request):
 			summary = pd.DataFrame(list(summary_for_database.values(
 				"title", "content", "date", "url", "topic", "jeiba", "summary1"
 			)))
+			# 將topic轉型, 從str轉成int, 以作為網頁顯示時判斷用
+			summary['topic'] = summary['topic'].astype('int')
+
 		elif keyword == "中國" and search_time == "all":
-			# 展示範利用，取得已分析好的結果摘要，直接呈現在網頁上
+			# 展示用，取得已分析好的結果摘要，直接呈現在網頁上
 			# 範例: keyword=中國, search_time=全部紀錄
+			print("="*20+"中國&all"+"="*20)
 			summary_for_database = models.SummaryCrawl.objects.filter(
 				content__contains=keyword).order_by('id')
 			summary = pd.DataFrame(list(summary_for_database.values(
 				"title", "content", "date", "url", "topic", "jeiba", "summary1"
 			)))
+			# 將topic轉型, 從str轉成int, 以作為網頁顯示時判斷用
+			summary['topic'] = summary['topic'].astype('int')
 		else:
 			# 取得LDA結果，做抽取式摘要
 			summary = esjieba.Drawable_summary(
 				df_lda, 'text_rank', 25, '2', keyword).make_summary()
 
-		# 輸出csv檔
-		# summary.to_csv("app_news_summary/static/summary_output_"+str(keyword)+"_"+str(search_time)+".csv")
+				# 輸出csv檔
+				# summary.to_csv("app_news_summary/static/summary_output_"+str(keyword)+"_"+str(search_time)+".csv")
 
-		# 無論如何先刪掉之前已產生的文字雲圖片
+				# 無論如何先刪掉之前已產生的文字雲圖片
 		for i in range(0, 3):
 			try:
 				os.remove(
@@ -145,7 +152,7 @@ def summary_esjieba_database(request):
 		for i in range(0, 3):
 			try:
 				df = df_lda.groupby('topic').get_group(i)
-				df_1 = df['jieba'].sum()
+				df_1 = df['jieba'].sum()				
 				wc = word_cloud.wc_1(df_1)
 				wc = wc.to_file(
 					'app_news_summary/static/images/wordcloud'+str(i)+'.png')
@@ -155,14 +162,5 @@ def summary_esjieba_database(request):
 		print(wc_list)
 	except KeyError:
 		pass
-
-	# 無論如何先刪掉之前已產生的文字雲圖片
-	# if datesize == 0:
-	#     for i in range(0, 3):
-	#         try:
-	#             os.remove(
-	#                 'app_news_summary/static/images/wordcloud'+str(i)+'.png')
-	#         except OSError as e:
-	#             print(e)
 
 	return render(request, 'search_result.html', locals())

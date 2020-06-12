@@ -9,3 +9,4 @@ opencc-python-reimplemented
 pandas
 scikit-learn
 tensorflow
+wordcloud
